@@ -47,12 +47,11 @@ export const getRefresh = createAsyncThunk(
     const state = getState();
     const persistedToken = state.auth.token;
     if (!persistedToken) {
-      return rejectWithValue('oops');
+      return rejectWithValue('error');
     }
     tokenAuth.set(persistedToken);
     try {
       const { data } = await axios.get('/users/current');
-      // console.log(data);
       return data;
     } catch (error) {
       console.log(error);

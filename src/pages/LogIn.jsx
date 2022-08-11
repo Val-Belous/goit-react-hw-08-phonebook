@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux';
 import { logIn } from 'Redux/auth/auth-operations';
 import styles from '../components/Form/Form.module.css';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { getisLogin } from 'Redux/auth/auth-selectors';
+import { useSelector } from 'react-redux';
 
 export const LogIn = () => {
   const [email, setEmail] = useState('');
@@ -37,35 +39,41 @@ export const LogIn = () => {
     setPassword('');
   };
 
+  const isLogin = useSelector(getisLogin);
+
   return (
     <>
-      <form className={styles.form} onSubmit={handleSubmit}>
-        <label className={styles.label}>
-          Email
-          <input
-            className={styles.input}
-            name="email"
-            value={email}
-            onChange={handleChange}
-            placeholder="Enter Email"
-            type="teemailxt"
-          />
-        </label>
-        <label className={styles.label}>
-          Password
-          <input
-            className={styles.input}
-            name="password"
-            value={password}
-            onChange={handleChange}
-            placeholder="Enter Password"
-            type="password"
-          />
-        </label>
-        <button className={styles.btn} type="submit">
-          Log In
-        </button>
-      </form>
+      {!isLogin && (
+        <div>
+          <form className={styles.form} onSubmit={handleSubmit}>
+            <label className={styles.label}>
+              Email
+              <input
+                className={styles.input}
+                name="email"
+                value={email}
+                onChange={handleChange}
+                placeholder="Enter Email"
+                type="teemailxt"
+              />
+            </label>
+            <label className={styles.label}>
+              Password
+              <input
+                className={styles.input}
+                name="password"
+                value={password}
+                onChange={handleChange}
+                placeholder="Enter Password"
+                type="password"
+              />
+            </label>
+            <button className={styles.btn} type="submit">
+              Log In
+            </button>
+          </form>
+        </div>
+      )}
     </>
   );
 };

@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { signIn } from 'Redux/auth/auth-operations';
 import styles from '../components/Form/Form.module.css';
+import { getisLogin } from 'Redux/auth/auth-selectors';
+import { useSelector } from 'react-redux';
 
 export const Registration = () => {
   const [name, setName] = useState('');
@@ -38,46 +40,50 @@ export const Registration = () => {
     setPassword('');
   };
 
+  const isLogin = useSelector(getisLogin);
+
   return (
     <>
-      <form className={styles.form} onSubmit={handleSubmit}>
-        <label className={styles.label}>
-          Name
-          <input
-            className={styles.input}
-            name="name"
-            value={name}
-            onChange={handleChange}
-            placeholder="Enter your Name"
-            type="name"
-          />
-        </label>
-        <label className={styles.label}>
-          Email
-          <input
-            className={styles.input}
-            name="email"
-            value={email}
-            onChange={handleChange}
-            placeholder="Enter Email"
-            type="teemailxt"
-          />
-        </label>
-        <label className={styles.label}>
-          Password
-          <input
-            className={styles.input}
-            name="password"
-            value={password}
-            onChange={handleChange}
-            placeholder="Enter Password"
-            type="password"
-          />
-        </label>
-        <button className={styles.btn} type="submit">
-          Register
-        </button>
-      </form>
+      {!isLogin && (
+        <form className={styles.form} onSubmit={handleSubmit}>
+          <label className={styles.label}>
+            Name
+            <input
+              className={styles.input}
+              name="name"
+              value={name}
+              onChange={handleChange}
+              placeholder="Enter your Name"
+              type="name"
+            />
+          </label>
+          <label className={styles.label}>
+            Email
+            <input
+              className={styles.input}
+              name="email"
+              value={email}
+              onChange={handleChange}
+              placeholder="Enter Email"
+              type="teemailxt"
+            />
+          </label>
+          <label className={styles.label}>
+            Password
+            <input
+              className={styles.input}
+              name="password"
+              value={password}
+              onChange={handleChange}
+              placeholder="Enter Password"
+              type="password"
+            />
+          </label>
+          <button className={styles.btn} type="submit">
+            Register
+          </button>
+        </form>
+      )}
     </>
   );
 };

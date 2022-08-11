@@ -6,9 +6,8 @@ export const Contacts = () => {
   return (
     <>
       <div>
-        <h2>PhoneBook</h2>
+        <h2>Add new contact</h2>
         <Form></Form>
-        <h3>Search Users</h3>
         <Filter></Filter>
         <h3>Contacts</h3>
         <ContactList></ContactList>

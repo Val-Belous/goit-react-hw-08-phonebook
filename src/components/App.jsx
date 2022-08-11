@@ -1,10 +1,20 @@
+// import { Contacts } from 'pages/Contacts';
 import { Route, Routes } from 'react-router-dom';
 import { LogIn } from 'pages/LogIn';
 import { Registration } from '../pages/Registration';
 import { AppBar } from './UserMenu/AppBar';
-import { Contacts } from 'pages/Contacts';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { getRefresh } from 'Redux/auth/auth-operations';
+import { Contacts } from '../pages/Contacts';
 
 export const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getRefresh());
+  }, [dispatch]);
+
   // const loading = useSelector(state => state.contacts.pending);
 
   return (
@@ -13,9 +23,9 @@ export const App = () => {
         <Route path="/" element={<AppBar />}>
           <Route index element={<Registration />}></Route>
           <Route path="login" element={<LogIn />}></Route>
-          {/* <Route path="/contacts" element={<Contacts />}></Route> */}
           {/* {loading && <Loader />} */}
         </Route>
+        {/* <Route path="/contact" element={<Contacts />}></Route> */}
       </Routes>
     </>
   );
