@@ -20,7 +20,7 @@ export const App = () => {
   return (
     <>
       <Routes>
-        <Route path="/goit-react-hw-08-phonebook/" element={<AppBar />}>
+        <Route path="/goit-react-hw-08-phonebook" element={<AppBar />}>
           <Route index element={<Registration />}></Route>
           <Route path="login" element={<LogIn />}></Route>
           {/* {loading && <Loader />} */}
