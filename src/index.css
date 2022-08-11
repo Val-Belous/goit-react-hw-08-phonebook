@@ -8,6 +8,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding-top: 20px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 :root {
@@ -40,7 +43,7 @@ p {
   font-family: var(--font);
 }
 
-.container {
+/* .container {
   background: var(--second-color);
   box-shadow: 0px 1px 3px rgb(0 0 0 / 12%), 0px 1px 1px rgb(0 0 0 / 14%),
     0px 2px 1px rgb(0 0 0 / 20%);
@@ -49,10 +52,21 @@ p {
 
   margin-left: auto;
   margin-right: auto;
-  /* text-align: center; */
   padding: 15px;
-}
+} */
 
 .mainText {
   color: var(--main-color);
 }
+
+/* 
+.help {
+  background: var(--second-color);
+  box-shadow: 0px 1px 3px rgb(0 0 0 / 12%), 0px 1px 1px rgb(0 0 0 / 14%),
+    0px 2px 1px rgb(0 0 0 / 20%);
+  border-radius: 0px 0px 4px 4px;
+  max-width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
+} */

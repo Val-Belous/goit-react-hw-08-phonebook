@@ -1,22 +1,22 @@
-import { ContactList } from './ContactList/ContactList';
-import { Filter } from './Filter/Filter';
-import Form from './Form/Form';
-import { useSelector } from 'react-redux';
-import { Loader } from './Loader/Loader';
+import { Route, Routes } from 'react-router-dom';
+import { LogIn } from 'pages/LogIn';
+import { Registration } from '../pages/Registration';
+import { AppBar } from './UserMenu/AppBar';
+import { Contacts } from 'pages/Contacts';
 
 export const App = () => {
-  const loading = useSelector(state => state.contacts.pending);
+  // const loading = useSelector(state => state.contacts.pending);
 
   return (
     <>
-      <div className="container">
-        <h1 className="mainText">Phonebook</h1>
-        <Form />
-        <h2 className="mainText">Contacts</h2>
-        <Filter />
-        <ContactList />
-        {loading && <Loader />}
-      </div>
+      <Routes>
+        <Route path="/" element={<AppBar />}>
+          <Route index element={<Registration />}></Route>
+          <Route path="login" element={<LogIn />}></Route>
+          {/* <Route path="/contacts" element={<Contacts />}></Route> */}
+          {/* {loading && <Loader />} */}
+        </Route>
+      </Routes>
     </>
   );
 };
