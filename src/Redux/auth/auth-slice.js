@@ -14,10 +14,22 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   extraReducers: {
+    [signIn.pending]: (state, { payload }) => {
+      state.isLogin = false;
+    },
+    [signIn.rejected]: (state, { payload }) => {
+      state.isLogin = false;
+    },
     [signIn.fulfilled]: (state, { payload }) => {
       state.token = payload.token;
       state.user = payload.user;
       state.isLogin = true;
+    },
+    [logIn.pending]: (state, { payload }) => {
+      state.isLogin = false;
+    },
+    [logIn.rejected]: (state, { payload }) => {
+      state.isLogin = false;
     },
     [logIn.fulfilled]: (state, { payload }) => {
       state.token = payload.token;
@@ -32,6 +44,12 @@ const authSlice = createSlice({
     [getRefresh.fulfilled]: (state, { payload }) => {
       state.user = payload;
       state.isLogin = true;
+    },
+    [getRefresh.pending]: (state, { payload }) => {
+      state.isLogin = false;
+    },
+    [getRefresh.rejected]: (state, { payload }) => {
+      state.isLogin = false;
     },
   },
 });

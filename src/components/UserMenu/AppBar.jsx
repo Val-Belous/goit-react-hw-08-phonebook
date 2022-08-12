@@ -10,7 +10,6 @@ export const AppBar = () => {
   return (
     <>
       <header>
-        {/* <Navigation /> */}
         {isLogin ? <UserMenu /> : <AuthNav />}
         <Outlet />
       </header>

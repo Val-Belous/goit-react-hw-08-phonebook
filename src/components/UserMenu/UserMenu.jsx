@@ -1,10 +1,9 @@
-import { Contacts } from '../../pages/Contacts';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from 'Redux/auth/auth-operations';
 import { getUserName } from 'Redux/auth/auth-selectors';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-import styles from '../../components/Form/Form.module.css';
+import styles from '../UserMenu/UserMenu.module.css';
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
@@ -13,7 +12,7 @@ export const UserMenu = () => {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <div className={styles.container}>
       <span className={styles.spanchik}>Welcome, {name}</span>
       <button
         className={styles.btn}
@@ -25,7 +24,6 @@ export const UserMenu = () => {
       >
         Log Out
       </button>
-      <Contacts />
     </div>
   );
 };

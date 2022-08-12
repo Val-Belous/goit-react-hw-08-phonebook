@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'Redux/auth/auth-operations';
 import styles from '../components/Form/Form.module.css';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { getisLogin } from 'Redux/auth/auth-selectors';
 import { useSelector } from 'react-redux';
 
@@ -34,7 +34,7 @@ export const LogIn = () => {
     const user = { email, password };
 
     dispatch(logIn(user));
-    // navigate('/contacts');
+    navigate('/contacts');
     setEmail('');
     setPassword('');
   };

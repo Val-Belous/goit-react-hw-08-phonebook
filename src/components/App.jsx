@@ -1,4 +1,3 @@
-// import { Contacts } from 'pages/Contacts';
 import { Route, Routes } from 'react-router-dom';
 import { LogIn } from 'pages/LogIn';
 import { Registration } from '../pages/Registration';
@@ -7,6 +6,8 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { getRefresh } from 'Redux/auth/auth-operations';
 import { Contacts } from '../pages/Contacts';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
+import PublicRoute from './PublicRoute/PublicRoute';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -19,13 +20,33 @@ export const App = () => {
 
   return (
     <>
+      <AppBar />
       <Routes>
-        <Route path="/goit-react-hw-08-phonebook" element={<AppBar />}>
-          <Route index element={<Registration />}></Route>
-          <Route path="login" element={<LogIn />}></Route>
-          {/* {loading && <Loader />} */}
-        </Route>
-        {/* <Route path="/contact" element={<Contacts />}></Route> */}
+        <Route
+          path="/"
+          element={
+            <PublicRoute>
+              <Registration />
+            </PublicRoute>
+          }
+        ></Route>
+        <Route
+          path="/login"
+          element={
+            <PublicRoute>
+              <LogIn />
+            </PublicRoute>
+          }
+        ></Route>
+        {/* {loading && <Loader />} */}
+        <Route
+          path="/contacts"
+          element={
+            <PrivateRoute>
+              <Contacts />
+            </PrivateRoute>
+          }
+        ></Route>
       </Routes>
     </>
   );
