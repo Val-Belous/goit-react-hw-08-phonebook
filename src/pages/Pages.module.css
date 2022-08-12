@@ -14,3 +14,12 @@
   margin-bottom: 20px;
   margin-top: 20px;
 }
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+  border: 2px solid var(--main-color);
+  border-radius: 5px;
+  padding: 10px;
+  color: var(--main-color);
+}

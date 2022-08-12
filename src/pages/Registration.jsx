@@ -45,44 +45,47 @@ export const Registration = () => {
   return (
     <>
       {!isLogin && (
-        <form className={styles.form} onSubmit={handleSubmit}>
-          <label className={styles.label}>
-            Name
-            <input
-              className={styles.input}
-              name="name"
-              value={name}
-              onChange={handleChange}
-              placeholder="Enter your Name"
-              type="name"
-            />
-          </label>
-          <label className={styles.label}>
-            Email
-            <input
-              className={styles.input}
-              name="email"
-              value={email}
-              onChange={handleChange}
-              placeholder="Enter Email"
-              type="teemailxt"
-            />
-          </label>
-          <label className={styles.label}>
-            Password
-            <input
-              className={styles.input}
-              name="password"
-              value={password}
-              onChange={handleChange}
-              placeholder="Enter Password"
-              type="password"
-            />
-          </label>
-          <button className={styles.btn} type="submit">
-            Register
-          </button>
-        </form>
+        <>
+          <h2>Registration</h2>
+          <form className={styles.form} onSubmit={handleSubmit}>
+            <label className={styles.label}>
+              Name
+              <input
+                className={styles.input}
+                name="name"
+                value={name}
+                onChange={handleChange}
+                placeholder="Enter your Name"
+                type="name"
+              />
+            </label>
+            <label className={styles.label}>
+              Email
+              <input
+                className={styles.input}
+                name="email"
+                value={email}
+                onChange={handleChange}
+                placeholder="Enter Email"
+                type="teemailxt"
+              />
+            </label>
+            <label className={styles.label}>
+              Password
+              <input
+                className={styles.input}
+                name="password"
+                value={password}
+                onChange={handleChange}
+                placeholder="Enter Password"
+                type="password"
+              />
+            </label>
+            <button className={styles.btn} type="submit">
+              Register
+            </button>
+          </form>
+        </>
       )}
     </>
   );

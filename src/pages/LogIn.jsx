@@ -34,7 +34,7 @@ export const LogIn = () => {
     const user = { email, password };
 
     dispatch(logIn(user));
-    navigate('/contacts');
+    // navigate('/contacts');
     setEmail('');
     setPassword('');
   };
@@ -45,6 +45,7 @@ export const LogIn = () => {
     <>
       {!isLogin && (
         <div>
+          <h2>Log In</h2>
           <form className={styles.form} onSubmit={handleSubmit}>
             <label className={styles.label}>
               Email
