@@ -16,23 +16,15 @@ export const UserMenu = () => {
   return (
     <div className={styles.userContainer}>
       <span className={styles.spanchik}>Welcome, {name}</span>
-      {/* <button
-        className={styles.btn}
-        type="button"
-        onClick={() => {
-          dispatch(logOut());
-          return navigate('/login');
-        }}
-      >
-        Log Out
-      </button> */}
       <Button
         sx={{
-          color: '#fff8dc',
-          backgroundColor: '#e9967a',
+          fontFamily: 'inherit',
+          color: '#e9967a',
+          backgroundColor: '#fff0f5',
+          border: '1px solid #e9967a ',
           '&:hover': {
-            color: '#e9967a',
-            background: '#fff8dc',
+            color: '#fff8dc',
+            background: '#e9967a',
           },
         }}
         type="button"

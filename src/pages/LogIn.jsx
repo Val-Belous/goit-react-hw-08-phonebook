@@ -5,6 +5,8 @@ import styles from '../components/Form/Form.module.css';
 import { useNavigate } from 'react-router-dom';
 import { getisLogin } from 'Redux/auth/auth-selectors';
 import { useSelector } from 'react-redux';
+import LoginIcon from '@mui/icons-material/Login';
+import Button from '@mui/material/Button';
 
 export const LogIn = () => {
   const [email, setEmail] = useState('');
@@ -34,7 +36,6 @@ export const LogIn = () => {
     const user = { email, password };
 
     dispatch(logIn(user));
-    // navigate('/contacts');
     setEmail('');
     setPassword('');
   };
@@ -69,9 +70,23 @@ export const LogIn = () => {
                 type="password"
               />
             </label>
-            <button className={styles.btn} type="submit">
+            <Button
+              sx={{
+                fontFamily: 'inherit',
+                color: '#e9967a',
+                backgroundColor: '#fff0f5',
+                border: '1px solid #e9967a ',
+                '&:hover': {
+                  color: '#fff8dc',
+                  background: '#e9967a',
+                },
+              }}
+              type="submit"
+              variant="contained"
+              endIcon={<LoginIcon />}
+            >
               Log In
-            </button>
+            </Button>
           </form>
         </div>
       )}

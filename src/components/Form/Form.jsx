@@ -2,6 +2,8 @@ import { useState } from 'react';
 import styles from './Form.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContacts } from 'Redux/Contacts/contacts-operations';
+import Button from '@mui/material/Button';
+import AddBoxIcon from '@mui/icons-material/AddBox';
 
 export default function Form() {
   const [name, setName] = useState('');
@@ -72,9 +74,24 @@ export default function Form() {
             required
           />
         </label>
-        <button className={styles.btn} type="submit">
+        <Button
+          sx={{
+            fontFamily: 'inherit',
+            color: '#e9967a',
+            backgroundColor: '#fff0f5',
+            border: '1px solid #e9967a ',
+            '&:hover': {
+              color: '#fff8dc',
+              background: '#e9967a',
+              border: '1px solid #e9967a',
+            },
+          }}
+          type="submit"
+          variant="contained"
+          endIcon={<AddBoxIcon />}
+        >
           Add contact
-        </button>
+        </Button>
       </form>
     </>
   );

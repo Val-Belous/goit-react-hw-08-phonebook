@@ -4,6 +4,8 @@ import { signIn } from 'Redux/auth/auth-operations';
 import styles from '../components/Form/Form.module.css';
 import { getisLogin } from 'Redux/auth/auth-selectors';
 import { useSelector } from 'react-redux';
+import Button from '@mui/material/Button';
+import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
 
 export const Registration = () => {
   const [name, setName] = useState('');
@@ -81,9 +83,23 @@ export const Registration = () => {
                 type="password"
               />
             </label>
-            <button className={styles.btn} type="submit">
+            <Button
+              sx={{
+                fontFamily: 'inherit',
+                color: '#e9967a',
+                backgroundColor: '#fff0f5',
+                border: '1px solid #e9967a ',
+                '&:hover': {
+                  color: '#fff8dc',
+                  background: '#e9967a',
+                  border: '1px solid #e9967a',
+                },
+              }}
+              variant="contained"
+              endIcon={<AppRegistrationIcon />}
+            >
               Register
-            </button>
+            </Button>
           </form>
         </>
       )}
