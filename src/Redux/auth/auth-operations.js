@@ -8,7 +8,7 @@ const tokenAuth = {
     axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   },
   unset() {
-    axios.defaults.headers.common.Authorization = null;
+    axios.defaults.headers.common.Authorization = '';
   },
 };
 
@@ -32,9 +32,9 @@ export const logIn = createAsyncThunk('auth/login', async credentials => {
   }
 });
 
-export const logOut = createAsyncThunk('auth/logout', async () => {
+export const logOut = createAsyncThunk('auth/logout', async credentials => {
   try {
-    await axios.post('/users/logout');
+    await axios.post('/users/logout', credentials);
     tokenAuth.unset();
   } catch (error) {
     return error;
