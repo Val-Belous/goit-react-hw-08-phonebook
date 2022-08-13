@@ -7,6 +7,7 @@ import { getisLogin } from 'Redux/auth/auth-selectors';
 import { useSelector } from 'react-redux';
 import LoginIcon from '@mui/icons-material/Login';
 import Button from '@mui/material/Button';
+import { Contacts } from './Contacts';
 
 export const LogIn = () => {
   const [email, setEmail] = useState('');
@@ -44,7 +45,7 @@ export const LogIn = () => {
 
   return (
     <>
-      {!isLogin && (
+      {!isLogin ? (
         <div>
           <h2>Log In</h2>
           <form className={styles.form} onSubmit={handleSubmit}>
@@ -89,6 +90,8 @@ export const LogIn = () => {
             </Button>
           </form>
         </div>
+      ) : (
+        <Contacts></Contacts>
       )}
     </>
   );

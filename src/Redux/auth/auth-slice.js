@@ -8,6 +8,7 @@ const initialState = {
   },
   token: null,
   isLogin: false,
+  isRefreshed: false,
 };
 
 const authSlice = createSlice({
@@ -44,12 +45,14 @@ const authSlice = createSlice({
     [getRefresh.fulfilled]: (state, { payload }) => {
       state.user = payload;
       state.isLogin = true;
+      state.isRefreshed = false;
     },
     [getRefresh.pending]: (state, { payload }) => {
-      state.isLogin = false;
+      state.isRefreshed = true;
     },
     [getRefresh.rejected]: (state, { payload }) => {
-      state.isLogin = false;
+      state.token = '';
+      state.isRefreshed = false;
     },
   },
 });
