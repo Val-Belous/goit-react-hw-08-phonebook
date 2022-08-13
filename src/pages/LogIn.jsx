@@ -28,12 +28,15 @@ export const LogIn = () => {
     }
   };
 
-  const handleSubmit = evt => {
+  const handleSubmit = async evt => {
     evt.preventDefault();
 
     const user = { email, password };
-
-    dispatch(logIn(user));
+    try {
+      await dispatch(logIn(user)).unwrap();
+    } catch (error) {
+      console.log(error);
+    }
     setEmail('');
     setPassword('');
   };

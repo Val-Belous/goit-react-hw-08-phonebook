@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom';
+// import { Outlet } from 'react-router-dom';
 import { UserMenu } from './UserMenu';
 import { AuthNav } from './AuthNav';
 import { useSelector } from 'react-redux';
@@ -10,7 +10,7 @@ export const AppBar = () => {
     <>
       <header>
         {isLogin ? <UserMenu /> : <AuthNav />}
-        <Outlet />
+        {/* <Outlet /> */}
       </header>
     </>
   );
