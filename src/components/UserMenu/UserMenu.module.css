@@ -2,39 +2,18 @@
   color: var(--main-color);
   margin-right: 20px;
 }
-.btn {
-  font-family: var(--font);
-  cursor: pointer;
-  background-color: var(--third-color);
-  line-height: 1.62;
-  border: transparent;
-  padding: 6px 22px;
-  width: 150px;
-  transition: box-shadow var(--animation), color var(--animation),
-    background-color var(--animation);
-  border-radius: 5px;
-  color: var(--main-color);
-  border: 1px solid var(--main-color);
-}
-
-.btn:hover,
-.btn:focus {
-  color: var(--second-color);
-  background-color: var(--main-color);
-  box-shadow: 0px 3px 1px rgb(0 0 0 / 10%), 0px 1px 2px rgb(0 0 0 / 8%),
-    0px 2px 2px rgb(0 0 0 / 12%);
-}
 
 .container {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   margin-right: 20px;
 }
-.userContainer {
+
+.user_container {
   margin-top: 20px;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   margin-right: 20px;
 }
@@ -47,12 +26,10 @@
   line-height: 1.62;
   border: transparent;
   padding: 6px 22px;
-  transition: box-shadow var(--animation), color var(--animation),
-    background-color var(--animation);
+  transition: box-shadow var(--animation), color var(--animation);
+  background-color: var(--animation);
   border-radius: 5px;
   color: var(--main-color);
-
-  animation: pulsate 1.5s infinite alternate;
 }
 
 .link {

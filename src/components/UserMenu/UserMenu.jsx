@@ -14,7 +14,7 @@ export const UserMenu = () => {
   const navigate = useNavigate();
 
   return (
-    <div className={styles.userContainer}>
+    <div className={styles.user_container}>
       <span className={styles.spanchik}>Welcome, {name}</span>
       <Button
         sx={{
