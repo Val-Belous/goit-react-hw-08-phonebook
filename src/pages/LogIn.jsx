@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'Redux/auth/auth-operations';
 import styles from '../components/Form/Form.module.css';
-import { useNavigate } from 'react-router-dom';
 import { getisLogin } from 'Redux/auth/auth-selectors';
 import { useSelector } from 'react-redux';
 import LoginIcon from '@mui/icons-material/Login';
@@ -13,8 +12,6 @@ export const LogIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  // const location = useLocation();
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleChange = evt => {
@@ -50,7 +47,6 @@ export const LogIn = () => {
           <h2>Log In</h2>
           <form className={styles.form} onSubmit={handleSubmit}>
             <label className={styles.label}>
-              Email
               <input
                 className={styles.input}
                 name="email"
